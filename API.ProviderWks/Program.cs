@@ -14,6 +14,7 @@ builder.Services.AddSwaggerOpenAPI(builder.Configuration);
 builder.Services.AddCustomServices();
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
 builder.Services.AddDbContext(builder.Configuration);
+builder.Services.AddDbContext<IApplicationDbContext,ApplicationDbContext>();
 builder.Services.AddCors(o => o.AddDefaultPolicy(builder =>
 {
     builder.AllowAnyOrigin()
